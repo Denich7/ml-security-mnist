@@ -1,0 +1,20 @@
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=resolute
+LOGO=ubuntu-logo
+
+Python 3.14.4
+git version 2.53.0
+Docker version 29.9.3, build 5457199
+Docker Compose version v5.7.0
+pip 26.3 from /home/mluser/ml-project/.venv/lib/python3.14/site-packages/pip (python 3.14)
+4.6.5

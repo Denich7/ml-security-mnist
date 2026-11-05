@@ -1,0 +1,3 @@
+mluser
+uid=1001(mluser) gid=1001(mluser) groups=1001(mluser),27(sudo),100(users)
+/home/mluser/ml-project

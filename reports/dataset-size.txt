@@ -1,0 +1,1 @@
+data/mnist.npz: 11490434 bytes

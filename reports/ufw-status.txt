@@ -1,0 +1,10 @@
+Status: active
+Logging: on (high)
+Default: deny (incoming), allow (outgoing), deny (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     LIMIT IN    Anywhere                  
+22/tcp (v6)                LIMIT IN    Anywhere (v6)             
+
