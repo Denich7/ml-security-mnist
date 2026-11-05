@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform linux -- Python 3.14.4, pytest-9.2.0, pluggy-1.7.0 -- /home/mluser/ml-project/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/mluser/ml-project
+plugins: platformdirs-4.14.5, anyio-4.16.0
+collecting ... collected 17 items
+
+tests/test_validation.py::test_invalid_array_does_not_call_model[wrong_type] PASSED [  5%]
+tests/test_validation.py::test_invalid_array_does_not_call_model[wrong_shape] PASSED [ 11%]
+tests/test_validation.py::test_invalid_array_does_not_call_model[empty_batch] PASSED [ 17%]
+tests/test_validation.py::test_invalid_array_does_not_call_model[nan] PASSED [ 23%]
+tests/test_validation.py::test_invalid_array_does_not_call_model[inf] PASSED [ 29%]
+tests/test_validation.py::test_invalid_array_does_not_call_model[negative_pixel] PASSED [ 35%]
+tests/test_validation.py::test_invalid_array_does_not_call_model[pixel_above_255] PASSED [ 41%]
+tests/test_validation.py::test_invalid_array_does_not_call_model[string_pixels] PASSED [ 47%]
+tests/test_validation.py::test_batch_limit_does_not_call_model PASSED    [ 52%]
+tests/test_validation.py::test_corrupted_file_does_not_call_model PASSED [ 58%]
+tests/test_validation.py::test_file_size_limit_does_not_call_model PASSED [ 64%]
+tests/test_validation.py::test_pixel_limit_does_not_call_model PASSED    [ 70%]
+tests/test_validation.py::test_unsupported_format_does_not_call_model PASSED [ 76%]
+tests/test_validation.py::test_rgb_png_does_not_call_model PASSED        [ 82%]
+tests/test_validation.py::test_correct_array_calls_model_with_scaled_features PASSED [ 88%]
+tests/test_validation.py::test_correct_png_calls_model PASSED            [ 94%]
+tests/test_validation.py::test_saved_model_can_predict PASSED            [100%]
+
+----- generated xml file: /home/mluser/ml-project/reports/lab2/pytest.xml ------
+============================== 17 passed in 0.20s ==============================

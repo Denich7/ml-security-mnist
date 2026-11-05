@@ -22,3 +22,11 @@ models/*
 
 .vscode/
 .idea/
+
+# Lab 2
+.pytest_cache/
+*.egg-info/
+artifacts/
+
+# Private GitHub SSH key
+github_ed25519

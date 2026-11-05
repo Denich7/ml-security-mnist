@@ -1,0 +1,156 @@
+{
+  "seed": 42,
+  "sample_size": 20,
+  "change": "Gaussian pixel noise, sigma=8 on the 0-255 scale",
+  "changed_answer_fraction": 0.0,
+  "accuracy_before": 0.95,
+  "accuracy_after": 0.95,
+  "assumption": "Small noise is assumed to preserve digit identity.",
+  "unusual_input": "Uniform random pixel noise, not a handwritten digit.",
+  "unusual_prediction": 3,
+  "unusual_input_rejected": false,
+  "conclusion": "Schema validation does not detect semantic anomalies. The classifier always selects one of ten classes.",
+  "next_measure": "Evaluate noise augmentation and a rejection policy on a separate validation set of non-digit images.",
+  "objects": [
+    {
+      "test_index": 3,
+      "true": 0,
+      "original_prediction": 0,
+      "changed_prediction": 0,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 10,
+      "true": 0,
+      "original_prediction": 0,
+      "changed_prediction": 0,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 2,
+      "true": 1,
+      "original_prediction": 1,
+      "changed_prediction": 1,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 5,
+      "true": 1,
+      "original_prediction": 1,
+      "changed_prediction": 1,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 1,
+      "true": 2,
+      "original_prediction": 2,
+      "changed_prediction": 2,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 35,
+      "true": 2,
+      "original_prediction": 2,
+      "changed_prediction": 2,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 18,
+      "true": 3,
+      "original_prediction": 3,
+      "changed_prediction": 3,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 30,
+      "true": 3,
+      "original_prediction": 3,
+      "changed_prediction": 3,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 4,
+      "true": 4,
+      "original_prediction": 4,
+      "changed_prediction": 4,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 6,
+      "true": 4,
+      "original_prediction": 4,
+      "changed_prediction": 4,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 8,
+      "true": 5,
+      "original_prediction": 6,
+      "changed_prediction": 6,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 15,
+      "true": 5,
+      "original_prediction": 5,
+      "changed_prediction": 5,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 11,
+      "true": 6,
+      "original_prediction": 6,
+      "changed_prediction": 6,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 21,
+      "true": 6,
+      "original_prediction": 6,
+      "changed_prediction": 6,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 0,
+      "true": 7,
+      "original_prediction": 7,
+      "changed_prediction": 7,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 17,
+      "true": 7,
+      "original_prediction": 7,
+      "changed_prediction": 7,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 61,
+      "true": 8,
+      "original_prediction": 8,
+      "changed_prediction": 8,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 84,
+      "true": 8,
+      "original_prediction": 8,
+      "changed_prediction": 8,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 7,
+      "true": 9,
+      "original_prediction": 9,
+      "changed_prediction": 9,
+      "prediction_changed": false
+    },
+    {
+      "test_index": 9,
+      "true": 9,
+      "original_prediction": 9,
+      "changed_prediction": 9,
+      "prediction_changed": false
+    }
+  ]
+}

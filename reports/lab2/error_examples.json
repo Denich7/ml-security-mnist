@@ -1,0 +1,42 @@
+[
+  {
+    "test_index": 8,
+    "true": 5,
+    "predicted": 6
+  },
+  {
+    "test_index": 38,
+    "true": 2,
+    "predicted": 3
+  },
+  {
+    "test_index": 63,
+    "true": 3,
+    "predicted": 2
+  },
+  {
+    "test_index": 66,
+    "true": 6,
+    "predicted": 7
+  },
+  {
+    "test_index": 92,
+    "true": 9,
+    "predicted": 4
+  },
+  {
+    "test_index": 111,
+    "true": 7,
+    "predicted": 1
+  },
+  {
+    "test_index": 124,
+    "true": 7,
+    "predicted": 4
+  },
+  {
+    "test_index": 149,
+    "true": 2,
+    "predicted": 9
+  }
+]

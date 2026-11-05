@@ -1,0 +1,62 @@
+{
+  "dataset_sha256": "731c5ac602752760c8e48fbffcf8c3b850d9dc2a2aedcf2cc48468fc17b673d1",
+  "seed": 42,
+  "original_train_size": 60000,
+  "original_test_size": 10000,
+  "pixel_dtype": "uint8",
+  "label_dtype": "uint8",
+  "pixel_min": 0,
+  "pixel_max": 255,
+  "missing_values": 0,
+  "train_duplicate_extra_copies": 0,
+  "test_duplicate_extra_copies": 0,
+  "train_test_shared_unique_images": 0,
+  "conflicting_train_image_groups": 0,
+  "removed_from_original_train": 0,
+  "train_size": 48000,
+  "validation_size": 12000,
+  "test_size": 10000,
+  "train_class_counts": [
+    4738,
+    5394,
+    4766,
+    4905,
+    4674,
+    4337,
+    4734,
+    5012,
+    4681,
+    4759
+  ],
+  "validation_class_counts": [
+    1185,
+    1348,
+    1192,
+    1226,
+    1168,
+    1084,
+    1184,
+    1253,
+    1170,
+    1190
+  ],
+  "test_class_counts": [
+    980,
+    1135,
+    1032,
+    1010,
+    982,
+    892,
+    958,
+    1028,
+    974,
+    1009
+  ],
+  "split_policy": "Official test retained. Exact image overlaps removed from training pool; training duplicates and conflicting training groups removed before stratified split.",
+  "limitations": [
+    "Writer identifiers are unavailable in this archive.",
+    "Exact deduplication does not detect near-duplicate images.",
+    "Official test duplicates are retained for benchmark comparability.",
+    "MNIST does not represent arbitrary photos or document layouts."
+  ]
+}
