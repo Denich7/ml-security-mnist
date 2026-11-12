@@ -1,0 +1,11 @@
+**
+!Dockerfile
+!requirements.txt
+!src/
+!src/__init__.py
+!src/model.py
+!src/smoke.py
+!models/
+!models/mnist_linear.npz
+!metrics/
+!metrics/model.sha256

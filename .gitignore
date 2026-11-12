@@ -30,3 +30,10 @@ artifacts/
 
 # Private GitHub SSH key
 github_ed25519
+
+# Lab 3 local environments, tooling, generated reports and secret files
+.venv-ci/
+.venv-test/
+.tools/
+reports/lab3/
+*.key

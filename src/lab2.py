@@ -3,7 +3,6 @@ import hashlib
 import json
 import platform
 import time
-from pathlib import Path
 
 import matplotlib
 

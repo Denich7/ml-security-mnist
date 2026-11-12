@@ -1,0 +1,19 @@
+{
+  "version": "mnist-official-test-first-100-per-class-v1",
+  "source_url": "https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz",
+  "source_sha256": "731c5ac602752760c8e48fbffcf8c3b850d9dc2a2aedcf2cc48468fc17b673d1",
+  "selection": "First 100 official test examples per class, class order 0..9",
+  "image_shape": [
+    28,
+    28
+  ],
+  "pixel_dtype": "uint8",
+  "label_dtype": "uint8",
+  "min_objects": 1000,
+  "max_objects": 1000,
+  "max_file_bytes": 2097152,
+  "min_class_fraction": 0.09,
+  "max_class_fraction": 0.11,
+  "images_sha256": "cb97f9d8533cf02346ac91a746edf30d761e59760fb585c6b194d351d9e2e227",
+  "labels_sha256": "f14d5cf1af0e9a4fdf542314f8c91295129353f6d870b30a9cc67646882437fa"
+}

@@ -1,0 +1,113 @@
+name: Lab 3 - secure ML pipeline
+
+on:
+  push:
+    branches: [lab3, 'lab3-demo-*']
+  pull_request:
+    branches: [lab3]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lab3-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Reject external PR before accessing protected model
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        run: |
+          echo 'External PR requires code review and a trusted local branch; no secrets are supplied.'
+          exit 1
+
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version-file: ci/python-version
+
+      - name: Install pinned dependencies and record provenance
+        run: |
+          mkdir -p reports/lab3
+          date -u +%FT%TZ > reports/lab3/checked-at.txt
+          git rev-parse HEAD > reports/lab3/commit.txt
+          python --version > reports/lab3/python-version.txt
+          python -m pip install pip==26.3
+          python -m pip install -r requirements-ci.lock
+
+      - name: Retrieve and verify model
+        env:
+          MODEL_KEY: ${{ secrets.MODEL_KEY }}
+        run: python -m src.ci decrypt
+
+      - name: Retrieve and verify data source
+        run: python -m src.ci prepare
+
+      - name: Ruff
+        run: ruff check src/ tests/ --output-format json --output-file reports/lab3/ruff.json
+
+      - name: Bandit
+        run: python -m bandit -r src/ -f json -o reports/lab3/bandit.json
+
+      - name: Tests
+        run: python -m pytest tests/ -v --junitxml=reports/lab3/pytest.xml | tee reports/lab3/pytest.txt
+
+      - name: Dependency security gate
+        run: python -m pip_audit -r requirements-ci.lock -f json -o reports/lab3/pip-audit.json
+
+      - name: Data quality gate
+        run: python -m src.ci data
+
+      - name: Model evaluation and quality gate
+        run: python -m src.ci evaluate
+
+      - name: Build container
+        run: docker build --tag ml-project:lab3 . 2>&1 | tee reports/lab3/docker-build.txt
+
+      - name: Install pinned Trivy
+        run: |
+          python tools/install_trivy.py
+          echo "$GITHUB_WORKSPACE/.tools" >> "$GITHUB_PATH"
+          .tools/trivy --version > reports/lab3/trivy-version.txt
+
+      - name: Dockerfile security gate
+        run: trivy config --exit-code 1 --format json --output reports/lab3/trivy-config.json Dockerfile
+
+      - name: Image vulnerability scan
+        run: |
+          trivy image --scanners vuln --severity UNKNOWN,CRITICAL --exit-code 1 --format json \
+            --output reports/lab3/trivy-image.json ml-project:lab3
+
+      - name: Security report policy and optional simulated failure
+        run: python -m src.ci security
+
+      - name: Non-root and smoke test
+        run: |
+          uid=$(docker run --rm --entrypoint id ml-project:lab3 -u)
+          printf '%s\n' "$uid" | tee reports/lab3/container-uid.txt
+          test "$uid" != 0
+          docker run --rm --network none --read-only --cap-drop ALL \
+            --security-opt no-new-privileges --pids-limit 64 --memory 256m --cpus 1 \
+            ml-project:lab3 | tee reports/lab3/smoke.txt
+          sha256sum models/mnist_linear.npz > reports/lab3/model.sha256
+
+      - name: Save diagnostic reports even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: lab3-reports-${{ github.run_id }}-${{ github.run_attempt }}
+          path: reports/lab3/
+          retention-days: 14
+          if-no-files-found: warn

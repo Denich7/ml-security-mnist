@@ -1,0 +1,10 @@
+{
+  "metric": "f1_macro",
+  "value": 0.898652977270161,
+  "dataset_version": "mnist-official-test-first-100-per-class-v1",
+  "data_identity": "cb97f9d8533cf02346ac91a746edf30d761e59760fb585c6b194d351d9e2e227:f14d5cf1af0e9a4fdf542314f8c91295129353f6d870b30a9cc67646882437fa",
+  "sample_size": 1000,
+  "model_sha256": "a1411713f8b02c211befe9c8fc565bd575f240ede992dfd1c41dafb82801927c",
+  "model_version": "lab2-v1",
+  "origin": "Original Lab 2 model evaluated once on the fixed CI subset"
+}

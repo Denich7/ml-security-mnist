@@ -43,7 +43,9 @@ https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-lab2.txt
+
+```
 
 ## Лабораторная работа № 2
 
@@ -70,7 +72,7 @@ python -m pip install -r requirements.txt
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-lab2.txt
 
 sha256sum -c reports/dataset.sha256
 
@@ -130,3 +132,11 @@ Jupyter запускается от mluser на 127.0.0.1.
 
 Артефакт models/mnist_linear.npz передаётся преподавателю
 через закрытую систему сдачи вместе с контрольной суммой.
+
+
+## Лабораторная работа № 3
+
+Полная инструкция, политики CI и демонстрации отказов: [LAB3.md](LAB3.md).
+
+Runtime-зависимости: requirements.txt. Среда проверок: requirements-ci.lock.
+Исходный список ЛР2 сохранён в requirements-lab2.txt.

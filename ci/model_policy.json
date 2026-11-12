@@ -1,0 +1,6 @@
+{
+  "allowed_relative_drop": 0.05,
+  "dataset_version": "mnist-official-test-first-100-per-class-v1",
+  "data_identity": "cb97f9d8533cf02346ac91a746edf30d761e59760fb585c6b194d351d9e2e227:f14d5cf1af0e9a4fdf542314f8c91295129353f6d870b30a9cc67646882437fa",
+  "sample_size": 1000
+}
