@@ -14,8 +14,8 @@ python3 -m venv .venv-ci
 .venv-ci/bin/python -m pip freeze > requirements-ci.lock
 .venv-ci/bin/python -m src.ci init
 echo 'Now fixing the official Python image by digest...'
-docker pull python:3.14-slim-bookworm
-image=$(docker image inspect python:3.14-slim-bookworm --format '{{index .RepoDigests 0}}')
+docker pull python:3.14-slim-trixie
+image=$(docker image inspect python:3.14-slim-trixie --format '{{index .RepoDigests 0}}')
 docker run --rm --entrypoint python "$image" -c 'import platform; print(platform.python_version())' > ci/python-version
 {
   printf 'FROM %s\n' "$image"
